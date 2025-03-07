@@ -1,1 +1,1 @@
-# chan-kor.github.io
+# chan-hur.github
