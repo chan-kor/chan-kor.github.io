@@ -1,4 +1,3 @@
-# PhD.JW
+# Chan Hur
 
-Jeongwan is a researcher in the field of Natural Language Processing (NLP), with a focus on machine learning, natural language processing, abstractive summarization, fact correction and Large Language Model (LLM). He is currently pursuing the Ph.D. candidate in
-computer science and engineering. He is currently interested in forming an LLM-based ecosystem.
+Chan Hur is a researcher in the field of Multimodal retrieval (CV+NLP), with a focus on compositional image retrieval and Large Multimodal Model (LMM). He is currently pursuing the Ph.D. candidate in computer science and engineering. He is currently interested in Large multimodal model and multimodal understanding.
