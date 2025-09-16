@@ -1,3 +1,3 @@
 # Chan Hur
 
-Chan Hur is a researcher in the field of Multimodal retrieval (CV+NLP), with a focus on compositional image retrieval and Large Multimodal Model (LMM). He is currently pursuing the Ph.D. candidate in computer science and engineering. He is currently interested in Large multimodal model and multimodal understanding.
+Chan Hur received his Ph.D. in Computer Science and Engineering from Kyungpook National University. His research focuses on multimodal learning and multimodal applications with LLM/LMM, particularly in text-video retrieval, GUI-agent , composed image retrieval, and large language/multimodal models (LLMs/LMMs). He is interested in bridging semantic gaps between heterogeneous modalities and multimodal representation learning.
