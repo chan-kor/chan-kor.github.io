@@ -4,9 +4,13 @@
 It is adapted from the main template in the supplied `CV.zip`.
 The homepage and this CV were reconciled on October 19, 2026.
 
-Compile with **XeLaTeX** (twice) or **Tectonic**, using the fonts
-**Liberation Sans** and **Noto Sans CJK KR**. The Korean font is needed for
-patent titles and an award. For example, from this directory:
+The original CV's Inter font, 36pt Black name, 8pt body, partially green
+section headings, compact bullet lists, and 1.5cm margins are preserved.
+
+Compile with **XeLaTeX** (twice) or **Tectonic**, using the LaTeX `inter`
+and `fontawesome5` packages and the system font **Noto Sans CJK KR**.
+The Korean font is needed for patent titles and an award.
+For example, from this directory:
 
 ```sh
 tectonic fancy-rover.tex

@@ -2,23 +2,29 @@
 % Original template: https://github.com/subidit/rover-resume
 % Compile with XeLaTeX or Tectonic; see README.md.
 \documentclass[10pt,a4paper]{article}
-\usepackage[margin=1.5cm,bottom=1.65cm]{geometry}
-\usepackage{fontspec}
-\setmainfont{Liberation Sans}
+\usepackage[margin=1.5cm]{geometry}
+\usepackage{inter}
+\renewcommand*\familydefault{\sfdefault}
 \usepackage{xeCJK}
 \setCJKmainfont{Noto Sans CJK KR}
+\setCJKsansfont{Noto Sans CJK KR}
+\setCJKmonofont{Noto Sans CJK KR}
 \xeCJKsetup{CJKspace=true}
-\usepackage{xcolor}
-\definecolor{CVGreen}{HTML}{08745B}
-\definecolor{CVGray}{HTML}{616A70}
+\usepackage[dvipsnames]{xcolor}
+\colorlet{CVGreen}{PineGreen}
+\colorlet{icnclr}{gray}
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep,left=0pt..1.5em}
 \usepackage{titlesec}
 \usepackage{xhfill}
 \setcounter{secnumdepth}{0}
-\titleformat{\section}{\color{CVGreen}\large\bfseries}{}{}{\sectionrule}
-\newcommand{\sectionrule}[1]{#1\enspace\xrfill[.5ex]{.5pt}[CVGray]}
-\titlespacing*{\section}{0pt}{12pt}{6pt}
-\titleformat{\subsection}{\normalsize\bfseries}{}{}{}
-\titlespacing*{\subsection}{0pt}{7pt}{5pt}
+\titleformat{\section}{\color{PineGreen}\large\interheavy}{}{}{\sectionrule}[\global\RemVStrue]
+\newcommand{\sectionrule}[1]{#1~\xrfill[.5ex]{1pt}[gray]}
+\titleformat{\subsection}{\small\normalfont}{}{}{\rvs}
+\titlespacing{\subsection}{0pt}{*0}{*0}
+\newif\ifRemVS
+\newcommand{\rvs}{\ifRemVS\vspace{-1.5ex}\fi\global\RemVSfalse}
+\usepackage{fontawesome5}
 \usepackage[unicode,bookmarks=false]{hyperref}
 \hypersetup{
   colorlinks=true,
@@ -28,13 +34,7 @@
   pdfsubject={Research, education, publications, patents, awards, and teaching},
   pdfkeywords={Chan Hur, ETRI, multimodal learning, vision-language models}
 }
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\fancyfoot[L]{\footnotesize\color{CVGray}Chan Hur\enspace |\enspace Curriculum Vitae}
-\fancyfoot[R]{\footnotesize\color{CVGray}October 2026\enspace |\enspace\thepage}
-\setlength{\footskip}{19pt}
+\pagestyle{empty}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{0pt}
 \setlength{\emergencystretch}{2em}
@@ -43,68 +43,71 @@
 \raggedbottom
 \newcommand{\me}{\textbf{Chan Hur}}
 \newcommand{\cvpub}[3]{%
-  \noindent\begin{minipage}{\linewidth}
-    \raggedright
+  \item\begin{minipage}[t]{\linewidth}
     \textbf{#1}\par
     #2\par
-    {\itshape #3}\par
-  \end{minipage}\par\vspace{8pt}}
+    #3\par
+  \end{minipage}}
 \newcommand{\cventry}[3]{%
   \noindent\begin{minipage}{\linewidth}
-    \textbf{#1}\hfill #2\par
-    #3\par
-  \end{minipage}\par\vspace{6pt}}
+    \rvs
+    {\small\textbf{#1}\hfill #2\par}
+    \begin{itemize}[topsep=2pt]\item #3\end{itemize}
+  \end{minipage}\par}
 
 \begin{document}
-\fontsize{10.5}{13.5}\selectfont
-
 \begin{center}
-  {\fontsize{32}{35}\selectfont\bfseries Chan Hur}\par
-  \vspace{4pt}
-  Researcher, Electronics and Telecommunications Research Institute (ETRI)\par
-  \vspace{3pt}
-  \href{mailto:chanhur@etri.re.kr}{chanhur@etri.re.kr}\enspace |\enspace
-  \href{mailto:chanhur94@gmail.com}{chanhur94@gmail.com}\par
-  \href{https://chan-kor.github.io/}{chan-kor.github.io}\enspace |\enspace
-  \href{https://scholar.google.co.kr/citations?user=aOc_KKEAAAAJ}{Google Scholar}\enspace |\enspace
-  \href{https://www.linkedin.com/in/chan-hur/}{LinkedIn}\enspace |\enspace
-  +82 10-9305-8317
+  {\fontsize{36}{36}\selectfont\interheavy Chan Hur}\\\bigskip
+  {\color{icnclr}\faIcon{mobile-alt}} +82 10-9305-8317 $|$
+  {\color{icnclr}\faEnvelope[regular]} \href{mailto:chanhur@etri.re.kr}{chanhur@etri.re.kr} $|$
+  \href{mailto:chanhur94@gmail.com}{chanhur94@gmail.com}\\
+  \href{https://www.linkedin.com/in/chan-hur/}{{\color{icnclr}\faLinkedinIn} LinkedIn} $|$
+  \href{https://chan-kor.github.io/}{{\color{icnclr}\faGithub} GitHub Blog} $|$
+  \href{https://scholar.google.co.kr/citations?user=aOc_KKEAAAAJ}{Google Scholar}
 \end{center}
 
-\section{Research Interests}
+\section{Res\color{black}earch Interests}
+\footnotesize
 Multimodal learning and representation learning, with a focus on vision-language models,
 text–video retrieval, GUI agents, compositional image retrieval, video question answering,
 and applications of large language and multimodal models. Research interests include
 cross-modal alignment, generative caption utilization, bridging semantic gaps between
 modalities, and domain-specific AI for medical applications.
 
-\section{Research Experience}
+\section{Res\color{black}earch Experience}
 \cventry{Researcher, ETRI}{2026.02–Present}{%
   Digital Convergence Research Department\par
   Electronics and Telecommunications Research Institute\par
   Research on vision-language models, multimodal retrieval, and GUI agents.}
 
-\section{Education}
-\cventry{Ph.D. in Computer Science and Engineering}{2021.03–2026.02}{%
-  Kyungpook National University, Daegu, South Korea\par
-  Dissertation: \textit{Advancing Text-Video Retrieval with Frame-Wise Generative Information}\par
-  Advisor: Prof. Hyeyoung Park}
-\cventry{M.S. in Computer Science and Engineering}{2019.03–2021.02}{%
-  Kyungpook National University, Daegu, South Korea\par
-  Thesis: \textit{Zero-Shot Image Recognition Model Using Image Description}\par
-  Advisor: Prof. Hyeyoung Park}
-\cventry{B.S. in Mechanical Engineering}{2014.03–2019.02}{%
-  Kyungpook National University, Daegu, South Korea}
+\section{Edu\color{black}cation}
+\subsection{Ph.D. $|$ {\normalfont\textit{Department of Computer Science and Engineering}} \hfill 2021.03–2026.02}
+\begin{itemize}
+  \item Kyungpook National University \hfill Daegu, South Korea
+  \item Dissertation: Advancing Text-Video Retrieval with Frame-Wise Generative Information
+  \item Advisor: Prof. Hyeyoung Park
+\end{itemize}
+\subsection{M.S. $|$ {\normalfont\textit{Department of Computer Science and Engineering}} \hfill 2019.03–2021.02}
+\begin{itemize}
+  \item Kyungpook National University \hfill Daegu, South Korea
+  \item Thesis: Zero-Shot Image Recognition Model Using Image Description
+  \item Advisor: Prof. Hyeyoung Park
+\end{itemize}
+\subsection{B.S. $|$ {\normalfont\textit{Department of Mechanical Engineering}} \hfill 2014.03–2019.02}
+\begin{itemize}
+  \item Kyungpook National University \hfill Daegu, South Korea
+\end{itemize}
 
-\section{Publications}
+\section{Pub\color{black}lications}
 \subsection{International Conferences}
+\begin{itemize}
 \cvpub{Surface-Attribute Text Conditioning for RGB-to-HSI Reconstruction}
   {\me, Woonggyu Min, Ho-Youl Jung, Soo Jun Park, Myungeun Lim}
   {Asian Conference on Computer Vision (ACCV), 2026. Accepted.}
 \cvpub{Prescription Orders as a Prediction-Time Signal for Forward Acute Kidney Injury}
   {Hyung Wook Noh, \me, Jeonghyun Kim}
   {IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI), 2026. Accepted.
-   \href{https://openreview.net/forum?id=xfrk4jbxVa}{[OpenReview]}}
+   \par\url{https://openreview.net/forum?id=xfrk4jbxVa}}
 \cvpub{PopupBench: Diagnosing Popup Blindness in Vision–Language GUI Agents}
   {\me*, Youngjae Lee*, Hyeyoung Park, Hyung Wook Noh, Youngwan Lee}
   {NeurIPS 2026 Workshop on Interpreting Agent Behavior (IAB). Accepted.}
@@ -117,31 +120,37 @@ modalities, and domain-specific AI for medical applications.
 \cvpub{Narrating the Video: Boosting Text-Video Retrieval via Comprehensive Utilization of Frame-Level Captions}
   {\me*, Jeong-hun Hong*, Dong-hun Lee, Dabin Kang, Semin Myeong, Sang-hyo Park, Hyeyoung Park}
   {Conference on Computer Vision and Pattern Recognition (CVPR), 2025.
-   \href{https://arxiv.org/abs/2503.05186}{[arXiv]}}
+   \par\url{https://arxiv.org/abs/2503.05186}}
 \cvpub{Local Feature Aggregation with Attribute Anchors for Text-guided Image-Text Retrieval}
   {\me, Hyeyoung Park}
   {International Conference on Artificial Intelligence in Information and Communication (ICAIIC), 2025.
-   \href{https://ieeexplore.ieee.org/document/10920824}{[IEEE]}}
+   \par\url{https://ieeexplore.ieee.org/document/10920824}}
 \cvpub{Automatic Image Recommendation for Economic Topics using Visual and Semantic Information}
   {\me, Changhun Hyun, Hyeyoung Park}
   {International Conference on Semantic Computing (ICSC), 2020.
-   \href{https://ieeexplore.ieee.org/document/9031480}{[IEEE]}}
+   \par\url{https://ieeexplore.ieee.org/document/9031480}}
+
+\end{itemize}
 
 \subsection{International Journals}
+\begin{itemize}
 \cvpub{EENet: Embedding Enhancement Network for Compositional Image-Text Retrieval using Generated Text}
   {\me, Hyeyoung Park}
   {Multimedia Tools and Applications, 2023. SCIE (Q1).
-   \href{https://doi.org/10.1007/s11042-023-17531-y}{[DOI]}}
+   \par\url{https://doi.org/10.1007/s11042-023-17531-y}}
 \cvpub{Zero-shot Image Classification using Captioning-based Rectified Embedding Vector}
   {\me, Hyeyoung Park}
   {Applied Sciences, 2023. SCIE (Q2).
-   \href{https://doi.org/10.3390/app13127071}{[DOI]}}
+   \par\url{https://doi.org/10.3390/app13127071}}
 \cvpub{An Image Selection Framework for Automatic Report Generation}
   {Changhun Hyun, \me, Hyeyoung Park}
   {Multimedia Tools and Applications, 2022. SCIE (Q1).
-   \href{https://doi.org/10.1007/s11042-022-13120-7}{[DOI]}}
+   \par\url{https://doi.org/10.1007/s11042-022-13120-7}}
+
+\end{itemize}
 
 \subsection{Preprints \& Under Review}
+\begin{itemize}
 \cvpub{PopupBench: Revealing Popup Blindness in Vision-Language GUI Agents}
   {\me, Youngjae Lee, Hyeyoung Park, Youngwan Lee}
   {Under review, October 2026.}
@@ -151,9 +160,12 @@ modalities, and domain-specific AI for medical applications.
 \cvpub{MELON: A Large-Scale Dataset for Multi-Event Text-to-Long-Video Retrieval}
   {\me*, SeungWoo Song*, Jeong-hun Hong*, Won Jun Oh, Hyeyoung Park, KyungTae Lim}
   {arXiv preprint arXiv:2609.01654, 2026.
-   \href{https://arxiv.org/abs/2609.01654}{[arXiv]}}
+   \par\url{https://arxiv.org/abs/2609.01654}}
+
+\end{itemize}
 
 \subsection{Domestic Publications}
+\begin{itemize}
 \cvpub{Improving text-video retrieval performance using video features combined with generation-based caption information}
   {\me, Dong-hun Lee, Sang-hyo Park, Hyeyoung Park}
   {KIISE Transactions on Computing Practices, KCI, 2024.}
@@ -169,13 +181,14 @@ modalities, and domain-specific AI for medical applications.
 \cvpub{A study on Video-text Retrieval model using Caption Information}
   {Dong-hun Lee, \me, Hyeyoung Park, Sang-hyo Park}
   {Korea Artificial Intelligence Conference, 2022.}
+\end{itemize}
 
-\section{Patents}
+\section{Pat\color{black}ents}
 \cventry{전자 장치 및 그의 이미지를 추천하는 방법}{2025.05}{Registered (등록).}
 \cventry{언어 생성모델을 이용한 대화형 이미지 추천 시스템}{2023.06}{Patent application (출원).}
 \cventry{텍스트 기반 비디오 검색 장치 및 그 비디오 검색 방법}{2025.05}{Registered (등록).}
 
-\section{Awards}
+\section{Awa\color{black}rds}
 \cventry{Best Graduate Ph.D. Student Award}{2026}{%
   Department of Computer Science and Engineering, Kyungpook National University}
 \cventry{Best Paper Award}{2024}{%
@@ -185,15 +198,17 @@ modalities, and domain-specific AI for medical applications.
   Feature Vector Combination on Joint Embedding Space using Captions for Text Video Retrieval\par
   Korea Computer Congress (KCC)}
 
-\section{Teaching}
+\section{Lec\color{black}tures}
 \cventry{Deep Learning and Machine Learning with Python}{2023–2025}{%
   Kyungpook National University IT Education Center}
 \cventry{Introduction of Generative AI and Applications}{2024–2025}{%
   Kyungpook National University IT Education Center}
 \cventry{Machine Learning}{2023–2025}{Korea National Open University}
 
-\section{Skills}
+\section{Ski\color{black}lls}
+\begin{minipage}{\linewidth}
 \textbf{Deep Learning Frameworks:} PyTorch, TensorFlow\par
 \textbf{Languages:} Korean (native), English (fluent), Japanese (intermediate)
+\end{minipage}
 
 \end{document}
